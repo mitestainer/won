@@ -5,6 +5,7 @@ import {
   Search as SearchIcon,
   Close as CloseIcon
 } from '@styled-icons/material-outlined'
+import Link from 'next/link'
 
 import Logo from 'components/Logo'
 import Button from 'components/Button'
@@ -44,9 +45,13 @@ const Menu = ({ username }: MenuProps) => {
         <S.IconWrapper>
           <ShoppingCartIcon aria-label="Open Shopping Cart" />
         </S.IconWrapper>
-        <MediaMatch greaterThan="medium">
-          {!username && <Button>Sign in</Button>}
-        </MediaMatch>
+        {!username && (
+          <MediaMatch greaterThan="medium">
+            <Link href="/sign-in" passHref>
+              <Button as="a">Sign in</Button>
+            </Link>
+          </MediaMatch>
+        )}
       </S.MenuGroup>
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
@@ -63,13 +68,17 @@ const Menu = ({ username }: MenuProps) => {
         </S.MenuNav>
         {!username && (
           <S.RegisterBox>
-            <Button fullWidth size="large">
-              Log in now
-            </Button>
+            <Link href="/sign-in" passHref>
+              <Button as="a" fullWidth size="large">
+                Log in now
+              </Button>
+            </Link>
             <span>or</span>
-            <S.CreateAccount href="#" title="Sign Up">
-              Sign Up
-            </S.CreateAccount>
+            <Link href="/sign-up" passHref>
+              <S.CreateAccount href="#" title="Sign Up">
+                Sign Up
+              </S.CreateAccount>
+            </Link>
           </S.RegisterBox>
         )}
       </S.MenuFull>
