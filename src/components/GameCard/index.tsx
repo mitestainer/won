@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {
   AddShoppingCart,
   Favorite,
@@ -7,13 +8,15 @@ import {
 import Button from 'components/Button'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import * as S from './styles'
+import formatPrice from 'utils/formatPrice'
 
 export type GameCardProps = {
+  slug: string
   title: string
   developer: string
   img: string
-  price: string
-  promotionalPrice?: string
+  price: number
+  promotionalPrice?: number
   favorite?: boolean
   onFav?: () => void
   ribbon?: React.ReactNode
@@ -22,6 +25,7 @@ export type GameCardProps = {
 }
 
 const GameCard = ({
+  slug,
   title,
   developer,
   img,
@@ -35,15 +39,19 @@ const GameCard = ({
 }: GameCardProps) => {
   return (
     <S.Wrapper>
-      <S.ImageBox>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={img} alt={title} />
-      </S.ImageBox>
+      <Link href={`/game/${slug}`} passHref>
+        <S.ImageBox>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={img} alt={title} />
+        </S.ImageBox>
+      </Link>
       <S.Content>
-        <S.Info>
-          <S.Title>{title}</S.Title>
-          <S.Developer>{developer}</S.Developer>
-        </S.Info>
+        <Link href={`/game/${slug}`} passHref>
+          <S.Info>
+            <S.Title>{title}</S.Title>
+            <S.Developer>{developer}</S.Developer>
+          </S.Info>
+        </Link>
         <S.FavButton role="button" onClick={onFav}>
           {favorite ? (
             <Favorite aria-label="Remove from wishlist" />
@@ -52,8 +60,10 @@ const GameCard = ({
           )}
         </S.FavButton>
         <S.BuyBox>
-          {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
-          <S.Price>{promotionalPrice || price}</S.Price>
+          {!!promotionalPrice && (
+            <S.Price isPromotional>{formatPrice(price)}</S.Price>
+          )}
+          <S.Price>{formatPrice(promotionalPrice || price)}</S.Price>
           <Button icon={<AddShoppingCart />} size="small" />
         </S.BuyBox>
       </S.Content>
