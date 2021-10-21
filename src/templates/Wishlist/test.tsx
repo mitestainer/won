@@ -2,15 +2,16 @@ import 'match-media-mock'
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import Wishlist from '.'
+import Wishlist, { WishlistTemplateProps } from '.'
 
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
-const props = {
+const props: WishlistTemplateProps = {
   recommendedHighlight: highlightMock,
   recommendedGames: gamesMock,
-  games: gamesMock
+  games: gamesMock,
+  recommendedTitle: 'You may like these games'
 }
 
 jest.mock('components/Showcase', () => ({
@@ -36,6 +37,7 @@ describe('<Wishlist />', () => {
       <Wishlist
         recommendedGames={gamesMock}
         recommendedHighlight={highlightMock}
+        recommendedTitle="You may like these games"
       />
     )
 
