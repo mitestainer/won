@@ -22,7 +22,6 @@ export const LogoWrapper = styled.div`
 export const IconWrapper = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.white};
-    cursor: pointer;
     width: 2.4rem;
     height: 2.4rem;
   `}
