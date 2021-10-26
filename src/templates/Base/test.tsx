@@ -20,6 +20,12 @@ jest.mock('components/Footer', () => {
   }
 })
 
+jest.mock('next-auth/client', () => ({
+  useSession: jest.fn(() => {
+    return [{ session: null }]
+  })
+}))
+
 describe('<Base />', () => {
   it('should render menu, footer and children', () => {
     render(
