@@ -31,8 +31,12 @@ exports[`<FormSignUp /> should render the form 1`] = `
   text-decoration: none;
   height: 5rem;
   font-size: 1.6rem;
-  padding: 0.8rem 4.8rem;
+  padding: 0.8rem 0;
   width: 100%;
+}
+
+.c7:focus {
+  outline: 1px dashed;
 }
 
 .c7:hover {
@@ -115,6 +119,12 @@ exports[`<FormSignUp /> should render the form 1`] = `
 .c8 a:hover {
   color: #29b3a3;
   border-bottom: 0.1rem solid #29b3a3;
+}
+
+@media (min-width:768px) {
+  .c7 {
+    padding: 0.8rem 4.8rem;
+  }
 }
 
 <div

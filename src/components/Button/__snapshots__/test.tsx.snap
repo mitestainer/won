@@ -25,11 +25,21 @@ exports[`<Button /> should render the medium sized button by default 1`] = `
   text-decoration: none;
   height: 4rem;
   font-size: 1.4rem;
-  padding: 0.8rem 3.2rem;
+  padding: 0.8rem 0;
+}
+
+.c0:focus {
+  outline: 1px dashed;
 }
 
 .c0:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
+@media (min-width:768px) {
+  .c0 {
+    padding: 0.8rem 3.2rem;
+  }
 }
 
 <button

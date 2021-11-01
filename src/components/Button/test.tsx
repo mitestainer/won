@@ -9,9 +9,17 @@ describe('<Button />', () => {
 
     expect(screen.getByRole('button', { name: /Buy now/i })).toHaveStyle({
       height: '4rem',
-      padding: '0.8rem 3.2rem',
+      padding: '0.8rem 0',
       'font-size': '1.4rem'
     })
+
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyleRule(
+      'padding',
+      '0.8rem 3.2rem',
+      {
+        media: '(min-width: 768px)'
+      }
+    )
 
     expect(container.firstChild).toMatchSnapshot()
   })
@@ -30,9 +38,17 @@ describe('<Button />', () => {
 
     expect(screen.getByRole('button', { name: /Buy now/i })).toHaveStyle({
       height: '5rem',
-      padding: '0.8rem 4.8rem',
+      padding: '0.8rem 0',
       'font-size': '1.6rem'
     })
+
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyleRule(
+      'padding',
+      '0.8rem 4.8rem',
+      {
+        media: '(min-width: 768px)'
+      }
+    )
   })
 
   it('should render a full width version', () => {

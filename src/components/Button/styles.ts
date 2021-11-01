@@ -1,6 +1,7 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import { ButtonProps } from '.'
 import { darken } from 'polished'
+import media from 'styled-media-query'
 
 export type WrapperProps = {
   hasIcon: boolean
@@ -14,12 +15,20 @@ const wrapperModifiers = {
   medium: (theme: DefaultTheme) => css`
     height: 4rem;
     font-size: ${theme.font.sizes.small};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
+    padding: ${theme.spacings.xxsmall} 0;
+
+    ${media.greaterThan('medium')`
+      padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
+    `}
   `,
   large: (theme: DefaultTheme) => css`
     height: 5rem;
     font-size: ${theme.font.sizes.medium};
-    padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
+    padding: ${theme.spacings.xxsmall} 0;
+
+    ${media.greaterThan('medium')`
+      padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
+    `}
   `,
   fullWidth: () => css`
     width: 100%;
@@ -62,6 +71,10 @@ export const Wrapper = styled.button<WrapperProps>`
     padding: ${theme.spacings.xxsmall};
     cursor: pointer;
     text-decoration: none;
+
+    &:focus {
+      outline: 1px dashed;
+    }
 
     &:hover {
       background: ${minimal

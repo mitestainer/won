@@ -61,6 +61,7 @@ export const ButtonsWrapper = styled.div`
 
     ${media.greaterThan('medium')`
       flex-direction: row-reverse;
+      column-gap: 2rem;
 
       > button {
         width: initial;
