@@ -1,6 +1,7 @@
 import * as S from './styles'
 import { Download } from '@styled-icons/boxicons-solid/Download'
 import { useCart } from 'hooks/use-cart'
+import Image from 'next/image'
 
 export type PaymentInfoProps = {
   number: string
@@ -32,8 +33,7 @@ const GameItem = ({
     <S.Wrapper>
       <S.GameContent>
         <S.ImageBox>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={img} alt={title} />
+          <Image src={img} alt={title} layout="fill" objectFit="contain" />
         </S.ImageBox>
 
         <S.Content>
@@ -64,8 +64,12 @@ const GameItem = ({
           <S.CardInfo>
             <span>{paymentInfo.number}</span>
             {!!paymentInfo.img && !!paymentInfo.flag && (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img src={paymentInfo.img} alt={paymentInfo.flag} />
+              <Image
+                src={paymentInfo.img}
+                alt={paymentInfo.flag}
+                layout="fill"
+                objectFit="contain"
+              />
             )}
           </S.CardInfo>
         </S.PaymentContent>

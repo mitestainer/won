@@ -32,6 +32,6 @@ export const ShowMoreButton = styled.div`
     }
   `}
 `
-export const ShowMoreLoading = styled.img`
+export const ShowMoreLoading = styled.div`
   width: 4rem;
 `

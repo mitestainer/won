@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import Button from 'components/Button'
 
@@ -11,7 +12,13 @@ export type EmptyProps = {
 
 const Empty = ({ title, description, hasLink }: EmptyProps) => (
   <S.Wrapper>
-    <S.Image src="/img/empty.svg" alt="a gamer on a couch playing videogame" />
+    <Image
+      src="/img/empty.svg"
+      alt="a gamer on a couch playing videogame"
+      width={380}
+      height={285}
+      objectFit="cover"
+    />
 
     <S.Title>{title}</S.Title>
     <S.Description>{description}</S.Description>

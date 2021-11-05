@@ -1,5 +1,5 @@
+import Image from 'next/image'
 import Link from 'next/link'
-
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import CartButton from 'components/CartButton'
 import WishlistButton from 'components/WishlistButton'
@@ -37,8 +37,8 @@ const GameCard = ({
     <S.Wrapper>
       <Link href={`/game/${slug}`} passHref>
         <S.ImageBox>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={img} alt={title} />
+          {/* object-fit is in styles.ts */}
+          <Image src={img} alt={title} layout="fill" />
         </S.ImageBox>
       </Link>
       <S.Content>

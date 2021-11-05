@@ -27,11 +27,11 @@ describe('<Highlight />', () => {
   })
 
   it('should render the background image', () => {
-    const { container } = render(<Highlight {...props} />)
+    render(<Highlight {...props} />)
 
-    expect(container.firstChild).toHaveStyle({
-      backgroundImage: `url(${props.backgroundImage})`
-    })
+    expect(
+      screen.getByRole('img', { name: `${props.title} background` })
+    ).toHaveAttribute('src', `${props.backgroundImage}`)
   })
 
   it('should render a float image', () => {
