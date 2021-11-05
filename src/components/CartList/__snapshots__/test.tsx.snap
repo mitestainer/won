@@ -168,8 +168,9 @@ exports[`<CartList /> should render the cart list 1`] = `
         >
           <img
             alt="Red Dead Redemption 2"
-            layout="fill"
+            height="70"
             src="https://source.unsplash.com/user/willianjusten/151x70"
+            width="150"
           />
         </div>
         <div
@@ -203,8 +204,9 @@ exports[`<CartList /> should render the cart list 1`] = `
         >
           <img
             alt="Borderlands 3"
-            layout="fill"
+            height="70"
             src="https://source.unsplash.com/user/willianjusten/151x70"
+            width="150"
           />
         </div>
         <div

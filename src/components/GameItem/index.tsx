@@ -33,7 +33,7 @@ const GameItem = ({
     <S.Wrapper>
       <S.GameContent>
         <S.ImageBox>
-          <Image src={img} alt={title} layout="fill" objectFit="contain" />
+          <Image src={img} alt={title} width={150} height={70} />
         </S.ImageBox>
 
         <S.Content>
@@ -67,8 +67,8 @@ const GameItem = ({
               <Image
                 src={paymentInfo.img}
                 alt={paymentInfo.flag}
-                layout="fill"
-                objectFit="contain"
+                width={38}
+                height={24}
               />
             )}
           </S.CardInfo>
