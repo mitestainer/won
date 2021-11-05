@@ -4,8 +4,8 @@ import { useCart } from 'hooks/use-cart'
 
 export type PaymentInfoProps = {
   number: string
-  flag: string
-  img: string
+  flag?: string | null
+  img?: string | null
   purchaseDate: string
 }
 
@@ -63,8 +63,10 @@ const GameItem = ({
           <p>{paymentInfo.purchaseDate}</p>
           <S.CardInfo>
             <span>{paymentInfo.number}</span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={paymentInfo.img} alt={paymentInfo.flag} />
+            {!!paymentInfo.img && !!paymentInfo.flag && (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img src={paymentInfo.img} alt={paymentInfo.flag} />
+            )}
           </S.CardInfo>
         </S.PaymentContent>
       )}
