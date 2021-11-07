@@ -1,11 +1,28 @@
 /// <reference types="cypress" />
 
+type ShowcaseAttributes = {
+  name: string
+  highlight?: boolean
+}
+
 declare namespace Cypress {
   interface Chainable {
     /**
-     * Custom command to visit google
-     * @example cy.google()
+     * Custom command to get element by data-cy value
+     * @example cy.getByDataCy('selector')
      */
-    google(): Chainable<Window>
+    getByDataCy(selector: string): Chainable<Element>
+
+    /**
+     * Custom command to check banner in page
+     * @example cy.shouldRenderBanner()
+     */
+    shouldRenderBanner(): Chainable<Element>
+
+    /**
+     * Custom command to check showcase in page
+     * @example cy.shouldRenderShowcase()
+     */
+    shouldRenderShowcase(attrs: ShowcaseAttributes): Chainable<Element>
   }
 }
