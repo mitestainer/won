@@ -11,4 +11,15 @@ describe('User', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/`)
     cy.findByText(user.username).should('exist')
   });
+
+  it('should sign in and sign out', () => {
+    cy.visit('/sign-in')
+
+    cy.signIn()
+
+    cy.findByText('cypress').should('exist').click()
+    cy.findByText(/sign out/i).should('exist').click()
+    cy.findByText('cypress').should('not.exist')
+    cy.findByRole('link', { name: /sign in/i }).should('exist')
+  });
 });
